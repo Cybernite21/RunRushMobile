@@ -24,10 +24,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         rb.AddForce(transform.forward * forwardSpeed * Time.deltaTime, ForceMode.Acceleration);
-        rb.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, ForceMode.Acceleration);
+        rb.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, ForceMode.VelocityChange);
         if(movementSlider.value != 0)
         {
-            rb.AddForce(transform.right * movementSlider.value * moveSpeed * Time.deltaTime, ForceMode.Acceleration);
+            //rb.AddForce(transform.right * movementSlider.value * moveSpeed * Time.deltaTime, ForceMode.VelocityChange);
+            rb.MovePosition(new Vector3(transform.position.x, transform.position.y, movementSlider.value));
         }
     }
 
