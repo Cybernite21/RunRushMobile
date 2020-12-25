@@ -17,6 +17,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     public void OnUnityAdsDidFinish(string placementId, UnityEngine.Advertisements.ShowResult showResult)
     {
         Time.timeScale = 1;
+        Advertisement.Banner.Show();
         //throw new System.NotImplementedException();
     }
 
@@ -45,6 +46,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         Advertisement.Load("video");
         if(Advertisement.isInitialized && Advertisement.IsReady())
         {
+            Advertisement.Banner.Hide(true);
             Time.timeScale = 0;
             Advertisement.Show();
         }
@@ -79,6 +81,14 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
         Advertisement.Banner.Show("Banner");
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
+        if(Advertisement.isShowing)
+        {
+            Advertisement.Banner.Hide(true);
+        }
+        else
+        {
+            Advertisement.Banner.Show();
+        }
         yield return new WaitForSeconds(2);
         StartCoroutine(waitForAd());
         yield return null;
