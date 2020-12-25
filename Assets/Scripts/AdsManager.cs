@@ -46,7 +46,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         Advertisement.Load("video");
         if(Advertisement.isInitialized && Advertisement.IsReady())
         {
-            Advertisement.Banner.Hide(true);
+            Advertisement.Banner.Hide(false);
             Time.timeScale = 0;
             Advertisement.Show();
         }
@@ -83,7 +83,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
         if(Advertisement.isShowing)
         {
-            Advertisement.Banner.Hide(true);
+            Advertisement.Banner.Hide(false);
         }
         else
         {
