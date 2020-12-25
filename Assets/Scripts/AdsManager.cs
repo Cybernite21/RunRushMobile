@@ -36,7 +36,7 @@ public class AdsManager : MonoBehaviour
         {
             if(!Advertisement.isInitialized)
             {
-                Advertisement.Initialize(androidGameId);
+                Advertisement.Initialize(androidGameId, true);
             }
             yield return null;
         }
