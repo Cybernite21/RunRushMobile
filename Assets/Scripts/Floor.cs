@@ -18,6 +18,7 @@ public class Floor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.MovePosition(new Vector3(plr.transform.position.x - 36, transform.position.y, transform.position.z));
+        //rb.MovePosition(new Vector3(plr.transform.position.x - 36, 0, 0));
+        transform.position = new Vector3(plr.transform.position.x - 36, 0, 0); 
     }
 }

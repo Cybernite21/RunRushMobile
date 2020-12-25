@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
 
-    public float forwardSpeed = 1000f;
+    public float forwardSpeed = 1000;
+    public float maxVelocityForward = 500f;
     public float moveSpeed = 1500f;
 
     public Slider movementSlider;
@@ -24,7 +26,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         rb.AddForce(transform.forward * forwardSpeed * Time.deltaTime, ForceMode.Acceleration);
-        rb.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Mathf.Clamp(rb.velocity.z, 0, maxVelocityForward));
+        //rb.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, ForceMode.VelocityChange);
+        //rb.MovePosition(transform.position + transform.forward * forwardSpeed * Time.deltaTime);
         if(movementSlider.value != 0)
         {
             //rb.AddForce(transform.right * movementSlider.value * moveSpeed * Time.deltaTime, ForceMode.VelocityChange);
@@ -35,5 +39,13 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "obsticle")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
