@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         rb.AddForce(transform.forward * forwardSpeed * Time.deltaTime, ForceMode.Acceleration);
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Mathf.Clamp(rb.velocity.z, 0, maxVelocityForward));
+        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxVelocityForward, maxVelocityForward), Mathf.Clamp(rb.velocity.y, -maxVelocityForward, maxVelocityForward), Mathf.Clamp(rb.velocity.z, -maxVelocityForward, maxVelocityForward));
         //rb.AddForce(transform.right * Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, ForceMode.VelocityChange);
         //rb.MovePosition(transform.position + transform.forward * forwardSpeed * Time.deltaTime);
         if(movementSlider.value != 0)
