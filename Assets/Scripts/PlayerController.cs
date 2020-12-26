@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float forwardSpeed = 1000;
     public float maxVelocityForward = 500f;
     public float moveSpeed = 1500f;
+    public float posValue = 0f;
 
     public Slider movementSlider;
 
@@ -32,13 +34,25 @@ public class PlayerController : MonoBehaviour
         if(movementSlider.value != 0)
         {
             //rb.AddForce(transform.right * movementSlider.value * moveSpeed * Time.deltaTime, ForceMode.VelocityChange);
-            rb.MovePosition(new Vector3(transform.position.x, transform.position.y, movementSlider.value));
+            rb.MovePosition(new Vector3(transform.position.x, transform.position.y, posValue));
         }
     }
 
     void FixedUpdate()
     {
         
+    }
+
+    public void updatePosValue(float newPosValue)
+    {
+        if(Mathf.Abs(gameObject.transform.position.z - newPosValue) < 2)
+        {
+            posValue = movementSlider.value;
+        }
+        else
+        {
+            movementSlider.value = posValue;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
