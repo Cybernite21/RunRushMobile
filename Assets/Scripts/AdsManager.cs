@@ -9,6 +9,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     string androidGameId = "3948815";
     string iosGameId = "3948814";
 
+    public bool showBannerAd = true;
+
     public void OnUnityAdsDidError(string message)
     {
         //throw new System.NotImplementedException();
@@ -51,7 +53,10 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
             Advertisement.Show();
         }
 
-        StartCoroutine(waitForAd());
+        if(showBannerAd)
+        {
+            StartCoroutine(waitForAd());
+        }
     }
 
     // Update is called once per frame
@@ -60,6 +65,10 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         
     }
 
+    void OnDestroy()
+    {
+        Advertisement.RemoveListener(this);
+    }
 
     IEnumerator waitForAd()
     {
@@ -90,7 +99,10 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
             Advertisement.Banner.Show();
         }
         yield return new WaitForSeconds(2);
-        StartCoroutine(waitForAd());
+        if(showBannerAd)
+        {
+            StartCoroutine(waitForAd());
+        }
         yield return null;
     }
 }
