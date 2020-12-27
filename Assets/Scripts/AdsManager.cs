@@ -90,7 +90,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
         Advertisement.Banner.Show("Banner");
         Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-        if(Advertisement.isShowing)
+        if(Advertisement.isShowing || !showBannerAd)
         {
             Advertisement.Banner.Hide(false);
         }
