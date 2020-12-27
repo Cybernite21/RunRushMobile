@@ -52,11 +52,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
             Time.timeScale = 0;
             Advertisement.Show();
         }
-
-        if(showBannerAd)
-        {
-            StartCoroutine(waitForAd());
-        }
     }
 
     // Update is called once per frame

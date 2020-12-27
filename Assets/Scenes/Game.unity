@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 113.1}
+  m_AnchoredPosition: {x: 0, y: 113.1001}
   m_SizeDelta: {x: 0, y: -226.23486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &94331959
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiObsticle: {fileID: 8070162711643930223, guid: 37bdd3827e5949b4688da5ccab33d044, type: 3}
-  delayBtwnSpawn: 2
+  delayBtwnSpawn: 0.75
   spawn: 1
 --- !u!114 &94331960
 MonoBehaviour:

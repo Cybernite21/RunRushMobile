@@ -30,7 +30,7 @@ public class UiObsticleSpawner : MonoBehaviour
     {
         while(spawn)
         {
-            Vector3 spawnPosition = GetBottomLeftCorner(obsticlePanel) - new Vector3(Random.Range(0, obsticlePanel.rect.x), Random.Range(0, obsticlePanel.rect.y), 0);
+            Vector3 spawnPosition = GetBottomLeftCorner(obsticlePanel) - new Vector3(Random.Range(0, obsticlePanel.rect.x * 2), Random.Range(0, obsticlePanel.rect.y * 2), 0);
             Instantiate(uiObsticle, spawnPosition, Quaternion.identity, obsticlePanel);
             yield return new WaitForSeconds(delayBtwnSpawn);
         }
