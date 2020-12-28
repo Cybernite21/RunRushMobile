@@ -9,7 +9,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     string androidGameId = "3948815";
     string iosGameId = "3948814";
 
-    public bool showBannerAd = true;
+    public bool showBannerAd = false;
 
     public void OnUnityAdsDidError(string message)
     {
@@ -19,7 +19,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     public void OnUnityAdsDidFinish(string placementId, UnityEngine.Advertisements.ShowResult showResult)
     {
         Time.timeScale = 1;
-        Advertisement.Banner.Show();
         //throw new System.NotImplementedException();
     }
 
@@ -48,7 +47,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
         Advertisement.Load("video");
         if(Advertisement.isInitialized && Advertisement.IsReady())
         {
-            Advertisement.Banner.Hide(false);
             Time.timeScale = 0;
             Advertisement.Show();
         }
@@ -63,41 +61,5 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
     void OnDestroy()
     {
         Advertisement.RemoveListener(this);
-    }
-
-    IEnumerator waitForAd()
-    {
-        while(!Advertisement.IsReady("Banner") || !Advertisement.isInitialized)
-        {
-            if(!Advertisement.isInitialized)
-            {
-                Advertisement.Initialize(androidGameId, true);
-            }
-            yield return null;
-        }
-
-        Advertisement.Banner.Load("Banner");
-
-        while(!Advertisement.Banner.isLoaded)
-        {
-            yield return null;
-        }
-
-        Advertisement.Banner.Show("Banner");
-        Advertisement.Banner.SetPosition(BannerPosition.TOP_CENTER);
-        if(Advertisement.isShowing || !showBannerAd)
-        {
-            Advertisement.Banner.Hide(false);
-        }
-        else
-        {
-            Advertisement.Banner.Show();
-        }
-        yield return new WaitForSeconds(2);
-        if(showBannerAd)
-        {
-            StartCoroutine(waitForAd());
-        }
-        yield return null;
     }
 }
