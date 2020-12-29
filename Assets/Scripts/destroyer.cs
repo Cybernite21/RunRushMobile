@@ -72,8 +72,14 @@ public class destroyer : MonoBehaviour
                 myPlat = (GameObject)Instantiate(platformPrefab, new Vector3(Random.Range(-6.5f, 6.5f), plr.transform.position.y + (spawnOffsetY + Random.Range(.5f, 1f)), plr.transform.position.z), Quaternion.identity);
             }
         }*/
-
-        create(other);        
+        if (other.gameObject.tag == "obsticle")
+        {
+            create(other);
+        }
+        else if (other.gameObject.tag.StartsWith("building"))
+        {
+            other.gameObject.transform.position = new Vector3(other.gameObject.transform.position.x - 121, other.gameObject.transform.position.y, other.gameObject.transform.position.z);
+        }
     }
 
     void create(Collider other)
@@ -91,7 +97,6 @@ public class destroyer : MonoBehaviour
             Instantiate(coinPrefab, cPos, Quaternion.identity, obsticleHolder.transform);
         }*/
 
-        if (other && other.gameObject.tag != "floor")
-            Destroy(other.gameObject);
+        Destroy(other.gameObject);
     }
 }
