@@ -8,12 +8,14 @@ public class UiObsticle : MonoBehaviour
     public float timerToEndGame = 3f;
     public Color doomClr = Color.red;
     Color originalClr;
+    GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         originalClr = gameObject.GetComponent<Image>().color;
         StartCoroutine(timeToEndGame());
+        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class UiObsticle : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         gameObject.GetComponent<Image>().color = Color.Lerp(originalClr, doomClr, 1);
-        GameObject.FindObjectOfType<GameManager>().restartLvl();
+        gameManager.restartLvl();
         yield return null;
     }
 

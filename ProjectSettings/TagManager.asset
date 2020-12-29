@@ -9,6 +9,7 @@ TagManager:
   - obsticle
   - buildingLeft
   - buildingRight
+  - gameManager
   layers:
   - Default
   - TransparentFX

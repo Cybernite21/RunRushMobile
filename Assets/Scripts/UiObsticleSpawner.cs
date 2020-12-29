@@ -13,17 +13,24 @@ public class UiObsticleSpawner : MonoBehaviour
 
     public bool spawn = true;
 
+    GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         obsticlePanel = gameObject.GetComponent<RectTransform>();
         StartCoroutine(spawnUiObsticle());
+        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(gameManager.difficulty > 1)
+        {
+            delayBtwnSpawn = gameManager.difficultyStates[gameManager.difficulty - 2].uiObsticleSpawnDelay;
+            spawn = gameManager.difficultyStates[gameManager.difficulty - 2].spawnUiObsticles;
+        }
     }
 
     IEnumerator spawnUiObsticle()

@@ -485,7 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiObsticle: {fileID: 8070162711643930223, guid: 37bdd3827e5949b4688da5ccab33d044, type: 3}
   delayBtwnSpawn: 0.75
-  spawn: 1
+  spawn: 0
 --- !u!114 &94331960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4303,7 +4303,7 @@ GameObject:
   - component: {fileID: 1743593331}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: gameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4320,7 +4320,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5b53083dd4c5c419c5781a2656d167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  difficulty: 1
+  distance: 0
   scoreTXT: {fileID: 678644474}
+  difficultyStates:
+  - distance: 500
+    uiObsticleSpawnDelay: 2
+    spawnUiObsticles: 1
+  - distance: 1000
+    uiObsticleSpawnDelay: 1.5
+    spawnUiObsticles: 1
 --- !u!4 &1743593332
 Transform:
   m_ObjectHideFlags: 0
