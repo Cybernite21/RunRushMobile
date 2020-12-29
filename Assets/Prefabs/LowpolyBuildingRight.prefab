@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2306252968224778874
+--- !u!1 &1083644981219627490
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6825024526156593473}
-  - component: {fileID: 8529946308038246411}
-  - component: {fileID: 5135738377955796127}
+  - component: {fileID: 8196496484173415129}
+  - component: {fileID: 6442647190833150867}
+  - component: {fileID: 7515763809490050823}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -18,35 +18,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6825024526156593473
+--- !u!4 &8196496484173415129
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2306252968224778874}
+  m_GameObject: {fileID: 1083644981219627490}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6253089305555191833}
+  m_Father: {fileID: 8777509156860474241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8529946308038246411
+--- !u!33 &6442647190833150867
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2306252968224778874}
+  m_GameObject: {fileID: 1083644981219627490}
   m_Mesh: {fileID: -2432090755550338912, guid: 38ca369967f3abd449af1817b8c7d873, type: 3}
---- !u!23 &5135738377955796127
+--- !u!23 &7515763809490050823
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2306252968224778874}
+  m_GameObject: {fileID: 1083644981219627490}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -81,7 +81,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &6740973003680060067
+--- !u!1 &8251767413618010427
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,40 +89,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6253089305555191833}
-  - component: {fileID: 1921022392674062511}
+  - component: {fileID: 8777509156860474241}
+  - component: {fileID: 3864161277125978935}
   m_Layer: 0
-  m_Name: LowpolyBuilding
-  m_TagString: buildingLeft
+  m_Name: LowpolyBuildingRight
+  m_TagString: buildingRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6253089305555191833
+--- !u!4 &8777509156860474241
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6740973003680060067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.10817, y: -2.0592299, z: -7.2302437}
+  m_GameObject: {fileID: 8251767413618010427}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -11.10817, y: -2.0592299, z: 8.445728}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6825024526156593473}
+  - {fileID: 8196496484173415129}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1921022392674062511
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!65 &3864161277125978935
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6740973003680060067}
+  m_GameObject: {fileID: 8251767413618010427}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.7208061, y: 20.848457, z: 11.235422}
-  m_Center: {x: -3.023243, y: 9.924229, z: -4.0458994}
+  m_Center: {x: 3.023243, y: 9.924229, z: -4.0458994}
