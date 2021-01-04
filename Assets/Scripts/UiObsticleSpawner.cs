@@ -35,13 +35,14 @@ public class UiObsticleSpawner : MonoBehaviour
 
     IEnumerator spawnUiObsticle()
     {
-        while(spawn)
+        if(spawn)
         {
             Vector3 spawnPosition = GetBottomLeftCorner(obsticlePanel) - new Vector3(Random.Range(0, obsticlePanel.rect.x * 2), Random.Range(0, obsticlePanel.rect.y * 2), 0);
             Instantiate(uiObsticle, spawnPosition, Quaternion.identity, obsticlePanel);
             yield return new WaitForSeconds(delayBtwnSpawn);
         }
         yield return null;
+        StartCoroutine(spawnUiObsticle());
     }
 
     Vector3 GetBottomLeftCorner(RectTransform rt)

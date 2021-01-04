@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UiObsticle : MonoBehaviour
 {
+    public static event System.Action uiObsticleDie;
+
     public float timerToEndGame = 3f;
     public Color doomClr = Color.red;
     Color originalClr;
@@ -15,6 +17,7 @@ public class UiObsticle : MonoBehaviour
     {
         originalClr = gameObject.GetComponent<Image>().color;
         StartCoroutine(timeToEndGame());
+        StartCoroutine(dieUi());
         gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
     }
 
@@ -24,6 +27,12 @@ public class UiObsticle : MonoBehaviour
         
     }
 
+    IEnumerator dieUi()
+    {
+        yield return new WaitForSeconds(timerToEndGame);
+        uiObsticleDie();
+    }
+
     IEnumerator timeToEndGame()
     {
         float timer = 0;
@@ -31,10 +40,14 @@ public class UiObsticle : MonoBehaviour
         {
             gameObject.GetComponent<Image>().color = Color.Lerp(originalClr, doomClr, timer / timerToEndGame);
             timer += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
+            //yield return new WaitForEndOfFrame();
         }
-        gameObject.GetComponent<Image>().color = Color.Lerp(originalClr, doomClr, 1);
-        gameManager.restartLvl();
+        gameObject.GetComponent<Image>().color = doomClr;
+        if(uiObsticleDie != null)
+        {
+            //uiObsticleDie();
+        }
         yield return null;
     }
 

@@ -10,13 +10,14 @@ public class GameManager : MonoBehaviour
 
     public float distance = 0;
     public Text scoreTXT;
+    public Text fpsTXT;
 
     public level[] difficultyStates;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        UiObsticle.uiObsticleDie += restartLvl;
     }
 
     // Update is called once per frame
@@ -24,6 +25,11 @@ public class GameManager : MonoBehaviour
     {
         distance = Mathf.RoundToInt(Mathf.Abs((GameObject.FindGameObjectWithTag("Player").transform.position.x - 36)));
         scoreTXT.text = distance.ToString();
+
+        if(fpsTXT)
+        {
+            fpsTXT.text = "FPS: " + Mathf.RoundToInt((1 / Time.deltaTime));
+        }
 
         if(difficultyStates.Length > 0)
         {
