@@ -4523,9 +4523,11 @@ MonoBehaviour:
   difficultyStates:
   - distance: 500
     uiObsticleSpawnDelay: 1.5
+    uiObsticleLifetime: 1
     spawnUiObsticles: 1
   - distance: 1000
     uiObsticleSpawnDelay: 0.75
+    uiObsticleLifetime: 0.75
     spawnUiObsticles: 1
 --- !u!4 &1743593332
 Transform:

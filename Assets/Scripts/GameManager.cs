@@ -50,12 +50,14 @@ public class GameManager : MonoBehaviour
     {
         public int distance;
         public float uiObsticleSpawnDelay;
+        public float uiObsticleLifetime;
         public bool spawnUiObsticles;
 
-        public level(int dist, bool _spawnUiObsticles, float _uiObsticleSpawnDelay)
+        public level(int dist, bool _spawnUiObsticles, float _uiObsticleSpawnDelay, float _uiObsticleLifetime)
         {
             distance = dist;
             uiObsticleSpawnDelay = _uiObsticleSpawnDelay;
+            uiObsticleLifetime = _uiObsticleLifetime;
             spawnUiObsticles = _spawnUiObsticles;
         }
     }

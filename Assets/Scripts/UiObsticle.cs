@@ -15,10 +15,15 @@ public class UiObsticle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
+        if(gameManager.difficulty > 1)
+        {
+            timerToEndGame = gameManager.difficultyStates[gameManager.difficulty - 2].uiObsticleLifetime;
+        }
         originalClr = gameObject.GetComponent<Image>().color;
         StartCoroutine(timeToEndGame());
         StartCoroutine(dieUi());
-        gameManager = GameObject.FindGameObjectWithTag("gameManager").GetComponent<GameManager>();
+        
     }
 
     // Update is called once per frame
